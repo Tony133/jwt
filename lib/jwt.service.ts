@@ -8,6 +8,9 @@ import {
 } from './interfaces';
 import { JWT_MODULE_OPTIONS } from './jwt.constants';
 
+/**
+ * @publicApi
+ */
 @Injectable()
 export class JwtService {
   private readonly logger = new Logger('JwtService');

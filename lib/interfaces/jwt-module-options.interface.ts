@@ -6,6 +6,9 @@ export enum JwtSecretRequestType {
   VERIFY
 }
 
+/**
+ * @publicApi
+ */
 export interface JwtModuleOptions {
   global?: boolean;
   signOptions?: jwt.SignOptions;
@@ -24,10 +27,16 @@ export interface JwtModuleOptions {
   verifyOptions?: jwt.VerifyOptions;
 }
 
+/**
+ * @publicApi
+ */
 export interface JwtOptionsFactory {
   createJwtOptions(): Promise<JwtModuleOptions> | JwtModuleOptions;
 }
 
+/**
+ * @publicApi
+ */
 export interface JwtModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   global?: boolean;
   useExisting?: Type<JwtOptionsFactory>;
@@ -36,11 +45,17 @@ export interface JwtModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   inject?: any[];
 }
 
+/**
+ * @publicApi
+ */
 export interface JwtSignOptions extends jwt.SignOptions {
   secret?: string | Buffer;
   privateKey?: jwt.Secret;
 }
 
+/**
+ * @publicApi
+ */
 export interface JwtVerifyOptions extends jwt.VerifyOptions {
   secret?: string | Buffer;
   publicKey?: string | Buffer;
